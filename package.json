@@ -1,0 +1,13 @@
+{
+  "name": "hpc-agent-hub",
+  "version": "1.0.0",
+  "description": "HPC Agent Hub - Unified gateway for Azure HPC AI agents",
+  "scripts": {
+    "install-frontend": "cd frontend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "start": "cd backend && python app.py"
+  },
+  "keywords": ["hpc", "ai", "agents", "hub", "azure"],
+  "author": "Azure HPC Team",
+  "license": "MIT"
+}
