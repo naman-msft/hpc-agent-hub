@@ -17,8 +17,8 @@ const AgentHub: React.FC = () => {
     {
       id: 'hpc-pulse',
       name: 'HPC Pulse',
-      description: 'AI-powered conversational analytics for Azure HPC infrastructure. Query fleet health, NHIS metrics, and capacity across GB200/H100/MI300X clusters with natural language.',
-      icon: <TrendingUp className="w-12 h-12" />,
+      description: 'AI-powered conversational analytics for Azure HPC infrastructure. Query fleet health, NHIS metrics, and anything else about our fleet of clusters with natural language.',
+      icon: <TrendingUp className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-pulse',
       color: 'from-blue-500 to-cyan-500',
       gradient: 'hover:from-blue-600 hover:to-cyan-600',
@@ -27,8 +27,8 @@ const AgentHub: React.FC = () => {
     {
       id: 'hpc-ai-insights',
       name: 'HPC AI Insights',
-      description: 'Intelligent incident intelligence platform for supercomputing cluster deployments. Analyze ICM data, track cycle times, and detect patterns across GB200 buildouts worldwide.',
-      icon: <BarChart3 className="w-12 h-12" />,
+      description: 'Intelligent incident intelligence platform for supercomputing cluster deployments. Analyze ICM data, track cycle times, and get AI insights and alerts across our buildouts worldwide.',
+      icon: <BarChart3 className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-ai-insights',
       color: 'from-purple-500 to-pink-500',
       gradient: 'hover:from-purple-600 hover:to-pink-600',
@@ -37,8 +37,8 @@ const AgentHub: React.FC = () => {
     {
       id: 'fairwater-bot',
       name: 'Fairwater Teams Bot',
-      description: 'Grounded knowledge chatbot for Microsoft OpenAI Fairwater project. Get instant answers to questions about the project with contextual information and team expertise.',
-      icon: <MessageCircle className="w-12 h-12" />,
+      description: 'Grounded knowledge chatbot for HPC OpenAI Fairwater project. Get instant answers to questions about the project with contextual information and team expertise.',
+      icon: <MessageCircle className="w-10 h-10" />,
       link: 'https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_726f5869-fadb-132f-a9d4-44fe83d8ffa0',
       color: 'from-emerald-500 to-teal-500',
       gradient: 'hover:from-emerald-600 hover:to-teal-600',
@@ -47,7 +47,7 @@ const AgentHub: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+    <div className="h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden flex items-center justify-center">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-500/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
@@ -55,28 +55,25 @@ const AgentHub: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <div className="flex items-center justify-center mb-6 animate-fadeIn">
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center mb-4 animate-fadeIn">
             <div className="relative">
-              <Brain className="h-20 w-20 text-blue-400 animate-pulse" />
-              <Sparkles className="h-8 w-8 text-yellow-300 absolute -top-2 -right-2 animate-bounce" />
+              <Brain className="h-16 w-16 text-blue-400 animate-pulse" />
+              <Sparkles className="h-6 w-6 text-yellow-300 absolute -top-1 -right-1 animate-bounce" />
             </div>
           </div>
-          <h1 className="text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-fadeIn">
+          <h1 className="text-5xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-fadeIn">
             HPC Agent Hub
           </h1>
-          <p className="text-2xl text-slate-300 max-w-3xl mx-auto mb-4 animate-fadeIn delay-200">
+          <p className="text-xl text-slate-300 max-w-3xl mx-auto mb-2 animate-fadeIn delay-200">
             AI-Powered Operational Intelligence for Azure HPC
-          </p>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto animate-fadeIn delay-300">
-            Your unified gateway to specialized AI agents for GPU procurement, infrastructure monitoring, and project knowledge
           </p>
         </div>
 
         {/* Agent Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-3 gap-6 mb-6">
           {agents.map((agent, index) => (
             <a
               key={agent.id}
@@ -88,32 +85,32 @@ const AgentHub: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10 from-blue-500/50 to-purple-500/50 rounded-2xl"></div>
               
-              <div className="relative h-full bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 hover:border-slate-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <div className="relative h-full bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:border-slate-600 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                 {/* Badge */}
                 {agent.badge && (
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 rounded-full">
+                  <div className="absolute top-3 right-3 px-2 py-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 rounded-full">
                     <span className="text-xs font-semibold text-blue-300">{agent.badge}</span>
                   </div>
                 )}
 
                 {/* Icon */}
-                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${agent.color} ${agent.gradient} transition-all duration-300 mb-6 text-white shadow-lg group-hover:shadow-xl`}>
+                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${agent.color} ${agent.gradient} transition-all duration-300 mb-4 text-white shadow-lg group-hover:shadow-xl`}>
                   {agent.icon}
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                   {agent.name}
-                  <ExternalLink className="w-5 h-5 text-slate-400 group-hover:text-blue-400 transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-400 transition-colors" />
                 </h3>
-                <p className="text-slate-300 leading-relaxed mb-6">
+                <p className="text-slate-300 text-sm leading-relaxed mb-4">
                   {agent.description}
                 </p>
 
                 {/* Launch Button */}
-                <div className={`inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r ${agent.color} rounded-lg text-white font-semibold shadow-lg group-hover:shadow-xl transition-all duration-300`}>
+                <div className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${agent.color} rounded-lg text-white text-sm font-semibold shadow-lg group-hover:shadow-xl transition-all duration-300`}>
                   <span>Launch Agent</span>
-                  <ExternalLink className="w-4 h-4" />
+                  <ExternalLink className="w-3 h-3" />
                 </div>
               </div>
             </a>
@@ -122,13 +119,13 @@ const AgentHub: React.FC = () => {
 
         {/* Footer */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-full">
+          <div className="inline-flex items-center gap-3 px-6 py-2 bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-full">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-slate-300 font-medium">All Systems Operational</span>
+              <span className="text-slate-300 text-sm font-medium">All Systems Operational</span>
             </div>
             <div className="h-4 w-px bg-slate-600"></div>
-            <span className="text-slate-400">Azure HPC & AI Team</span>
+            <span className="text-slate-400 text-sm">Azure HPC & AI Team</span>
           </div>
         </div>
       </div>
