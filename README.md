@@ -4,93 +4,141 @@
 
 A beautiful, minimal landing page that serves as the central directory for all HPC AI agents - from infrastructure monitoring to incident analysis to project knowledge management.
 
-## 🚀 Quick Start (Localhost)
+![HPC Agent Hub](https://img.shields.io/badge/Azure-HPC%20%26%20AI-0078D4?style=for-the-badge&logo=microsoft-azure)
+![License](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)
 
-### Prerequisites
+---
+
+## 🌟 **What is this?**
+
+The HPC Agent Hub is a centralized landing page for Microsoft's Azure HPC & AI team's suite of intelligent agents. As Azure HPC manages thousands of GPU nodes (GB200, H100, MI300X) worth $40K+ each across global datacenters, this hub provides quick access to specialized AI agents that streamline operations.
+
+### **Available Agents:**
+
+1. **[HPC Pulse](https://aka.ms/hpc-pulse)** - Platform Health & Analytics
+   - AI-powered conversational analytics for Azure HPC infrastructure
+   - Natural language queries for fleet health, NHIS metrics, and capacity
+   - Monitors GB200/H100/MI300X clusters worldwide
+
+2. **[HPC AI Insights](https://aka.ms/hpc-ai-insights)** - ICM Analysis
+   - Intelligent incident intelligence platform for supercomputing deployments
+   - Analyzes ICM data, tracks cycle times, detects patterns
+   - GB200 buildout optimization across datacenters
+
+3. **[Fairwater Teams Bot](https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_726f5869-fadb-132f-a9d4-44fe83d8ffa0)** - Project Knowledge
+   - Grounded knowledge chatbot for Microsoft OpenAI Fairwater project
+   - Instant answers with contextual information and team expertise
+
+---
+
+## 🚀 **Quick Start (Localhost)**
+
+### **Prerequisites**
 - Python 3.9+
-- Node.js 18+
+- Node.js 14+
 - npm or yarn
 
-### Installation
+### **Installation**
 
-1. **Clone or create the project structure**
 ```bash
-mkdir hpc-agent-hub
+# Clone the repository
+git clone https://github.com/naman-msft/hpc-agent-hub.git
 cd hpc-agent-hub
-```
 
-2. **Install backend dependencies**
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
+cd frontend && npm install && cd ..
 
-3. **Install frontend dependencies**
-```bash
-npm run install-all
-```
-
-### Run on Localhost
-
-**Option 1: Run separately (recommended for development)**
-
-Terminal 1 - Backend:
-```bash
-npm run start-backend
-# or
-cd backend && python app.py
-```
-
-Terminal 2 - Frontend:
-```bash
-npm run start-frontend
-# or
-cd frontend && npm start
-```
-
-**Option 2: Run concurrently**
-```bash
-npm install  # Install root dependencies (includes concurrently)
-npm run dev
+# Start the application
+chmod +x start.sh
+./start.sh
 ```
 
 Visit: **http://localhost:3000**
 
-## 📁 Project Structure
+---
+
+## 📁 **Project Structure**
 
 ```
 hpc-agent-hub/
-├── frontend/           # React TypeScript app
+├── frontend/              # React + TypeScript + Tailwind CSS
 │   ├── src/
 │   │   ├── components/
 │   │   │   └── AgentHub.tsx    # Main hub component
 │   │   ├── App.tsx
-│   │   └── index.tsx
-│   └── package.json
-├── backend/            # Flask API
-│   └── app.py
+│   │   ├── index.tsx
+│   │   └── index.css
+│   ├── package.json
+│   ├── tailwind.config.js
+│   └── Dockerfile
+├── backend/               # Flask API
+│   ├── app.py
+│   ├── requirements.txt
+│   └── Dockerfile
+├── start.sh              # One-command startup script
 ├── requirements.txt
-├── package.json
 └── README.md
 ```
 
-## 🎨 Features
+---
 
-- **Minimal & Elegant UI**: Dark gradient theme with smooth animations
-- **3 Agent Cards**: HPC Pulse, HPC AI Insights, Fairwater Teams Bot
-- **Direct Links**: aka.ms links to each agent
-- **Responsive Design**: Works on all devices
-- **Health Check API**: `/api/health` and `/api/agents` endpoints
+## 🎨 **Features**
 
-## 🔗 Agents
+- ✨ **Beautiful Dark UI**: Gradient backgrounds with smooth animations
+- 🎴 **Agent Cards**: Three beautifully designed cards with hover effects
+- 🔗 **Direct Links**: One-click access to all agents via aka.ms links
+- 📱 **Responsive Design**: Works perfectly on all devices
+- ⚡ **Fast & Lightweight**: Static React app with minimal backend
+- 🐳 **Container Ready**: Dockerfile included for Azure Container Apps deployment
 
-1. **HPC Pulse** - Platform health monitoring (aka.ms/hpc-pulse)
-2. **HPC AI Insights** - ICM analysis (aka.ms/hpc-ai-insights)
-3. **Fairwater Teams Bot** - Project knowledge chatbot
+---
 
-## 🚢 Next: Deploy to Azure Container Apps
+## 🛠️ **Tech Stack**
 
-See deployment instructions in the deployment section.
+- **Frontend**: React 18, TypeScript, Tailwind CSS, Lucide Icons
+- **Backend**: Flask, Flask-CORS
+- **Deployment**: Azure Container Apps (coming soon)
+- **CI/CD**: GitHub Actions (coming soon)
 
-## 📝 License
+---
 
-Microsoft Internal Use
+## 📊 **API Endpoints**
+
+- `GET /api/health` - Health check
+- `GET /api/agents` - List of all available agents
+
+---
+
+## 🚢 **Deployment (Azure Container Apps)**
+
+```bash
+# Coming soon - deployment scripts for Azure Container Apps
+./deploy.sh
+```
+
+---
+
+## 👥 **Team**
+
+Built with ❤️ by the **Azure HPC & AI Team**
+
+- **Product Manager**: Naman Parikh
+- **Organization**: Microsoft Azure High-Performance Computing
+
+---
+
+## 📝 **License**
+
+MIT License - See [LICENSE](LICENSE) for details
+
+---
+
+## 🔗 **Related Projects**
+
+- [HPC Pulse](https://github.com/naman-msft/hpc-pulse) - Platform health monitoring agent
+- [HPC ICM Analysis](https://github.com/naman-msft/hpc-icm-analysis) - Incident analysis dashboard
+
+---
+
+**Status**: 🟢 All Systems Operational
