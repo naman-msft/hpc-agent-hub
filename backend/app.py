@@ -38,7 +38,7 @@ def get_agents():
             'id': 'fairwater-bot',
             'name': 'Fairwater Teams Bot',
             'description': 'Grounded knowledge chatbot for Microsoft OpenAI Fairwater project',
-            'link': 'https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_726f5869-fadb-132f-a9d4-44fe83d8ffa0',
+            'link': 'https://aka.ms/fairwater-teams-agent',
             'status': 'active',
             'badge': 'Teams Chat'
         }

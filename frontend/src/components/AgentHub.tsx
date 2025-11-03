@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, TrendingUp, BarChart3, MessageCircle, ExternalLink, Sparkles } from 'lucide-react';
+import { Brain, TrendingUp, BarChart3, MessageCircle, ExternalLink, Sparkles, Link as LinkIcon } from 'lucide-react';
 
 interface Agent {
   id: string;
@@ -7,6 +7,7 @@ interface Agent {
   description: string;
   icon: JSX.Element;
   link: string;
+  akaLink?: string;
   color: string;
   gradient: string;
   badge?: string;
@@ -20,6 +21,7 @@ const AgentHub: React.FC = () => {
       description: 'AI-powered conversational analytics for Azure HPC infrastructure. Query fleet health, NHIS metrics, and anything else about our fleet of clusters with natural language.',
       icon: <TrendingUp className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-pulse',
+      akaLink: 'aka.ms/hpc-pulse',
       color: 'from-blue-500 to-cyan-500',
       gradient: 'hover:from-blue-600 hover:to-cyan-600',
       badge: 'Platform Health'
@@ -30,6 +32,7 @@ const AgentHub: React.FC = () => {
       description: 'Intelligent incident intelligence platform for supercomputing cluster deployments. Analyze ICM data, track cycle times, and get AI insights and alerts across our buildouts worldwide.',
       icon: <BarChart3 className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-ai-insights',
+      akaLink: 'aka.ms/hpc-ai-insights',
       color: 'from-purple-500 to-pink-500',
       gradient: 'hover:from-purple-600 hover:to-pink-600',
       badge: 'ICM Analysis'
@@ -39,7 +42,8 @@ const AgentHub: React.FC = () => {
       name: 'Fairwater Teams Bot',
       description: 'Grounded knowledge chatbot for HPC OpenAI Fairwater project. Get instant answers to questions about the project with contextual information and team expertise.',
       icon: <MessageCircle className="w-10 h-10" />,
-      link: 'https://teams.microsoft.com/l/app/?source=embedded-builder&titleId=T_726f5869-fadb-132f-a9d4-44fe83d8ffa0',
+      link: 'https://aka.ms/fairwater-teams-agent',
+      akaLink: 'aka.ms/fairwater-teams-agent',
       color: 'from-emerald-500 to-teal-500',
       gradient: 'hover:from-emerald-600 hover:to-teal-600',
       badge: 'Teams Chat'
@@ -106,6 +110,14 @@ const AgentHub: React.FC = () => {
                 <p className="text-slate-300 text-sm leading-relaxed mb-4">
                   {agent.description}
                 </p>
+
+                {/* aka.ms Link Display */}
+                {agent.akaLink && (
+                  <div className="flex items-center gap-2 mb-4 px-3 py-2 bg-slate-700/30 rounded-lg border border-slate-600/30">
+                    <LinkIcon className="w-3 h-3 text-blue-400" />
+                    <span className="text-xs font-mono text-blue-300">{agent.akaLink}</span>
+                  </div>
+                )}
 
                 {/* Launch Button */}
                 <div className={`inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r ${agent.color} rounded-lg text-white text-sm font-semibold shadow-lg group-hover:shadow-xl transition-all duration-300`}>
