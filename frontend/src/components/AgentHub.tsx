@@ -18,7 +18,7 @@ const AgentHub: React.FC = () => {
     {
       id: 'hpc-pulse',
       name: 'HPC Pulse',
-      description: 'AI-powered conversational analytics for Azure HPC infrastructure. Query fleet health, NHIS metrics, and anything else about our fleet of clusters with natural language.',
+      description: 'Natural language conversational analytics for Azure HPC fleet health, NHIS metrics, capacity insights, and Kusto data across GB200/H100/MI300X clusters worldwide.',
       icon: <TrendingUp className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-pulse',
       akaLink: 'aka.ms/hpc-pulse',
@@ -29,7 +29,7 @@ const AgentHub: React.FC = () => {
     {
       id: 'hpc-ai-insights',
       name: 'HPC AI Insights',
-      description: 'Intelligent incident intelligence platform for supercomputing cluster deployments. Analyze ICM data, track cycle times, and get AI insights and alerts across our buildouts worldwide.',
+      description: 'AI-powered incident intelligence dashboard analyzing ICM data, cycle times, cross-datacenter patterns, and buildout efficiency for GB200 supercomputing deployments.',
       icon: <BarChart3 className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-ai-insights',
       akaLink: 'aka.ms/hpc-ai-insights',
@@ -40,7 +40,7 @@ const AgentHub: React.FC = () => {
     {
       id: 'fairwater-bot',
       name: 'Fairwater Teams Bot',
-      description: 'Grounded knowledge chatbot for HPC OpenAI Fairwater project. Get instant answers to questions about the project with contextual information and team expertise.',
+      description: 'Grounded Teams chatbot providing instant, context-aware answers about the Microsoft HPC OpenAI Fairwater project with team expertise and documentation.',
       icon: <MessageCircle className="w-10 h-10" />,
       link: 'https://aka.ms/fairwater-teams-agent',
       akaLink: 'aka.ms/fairwater-teams-agent',
@@ -130,7 +130,7 @@ const AgentHub: React.FC = () => {
         </div>
 
         {/* Footer */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <div className="inline-flex items-center gap-3 px-6 py-2 bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-full">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
@@ -139,7 +139,7 @@ const AgentHub: React.FC = () => {
             <div className="h-4 w-px bg-slate-600"></div>
             <span className="text-slate-400 text-sm">Azure HPC & AI Team</span>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Custom CSS animations */}
