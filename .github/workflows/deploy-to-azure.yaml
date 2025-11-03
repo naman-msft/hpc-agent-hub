@@ -1,0 +1,85 @@
+name: Deploy HPC Agent Hub to Azure Container Apps
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+env:
+  AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  RESOURCE_GROUP: ${{ secrets.RESOURCE_GROUP }}
+  ACR_NAME: ${{ secrets.ACR_NAME }}
+  APP_NAME: ${{ secrets.APP_NAME }}
+  FRONTEND_DOMAIN: ${{ secrets.FRONTEND_DOMAIN }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      id-token: write
+      contents: read
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+      
+      - name: 🔐 Azure Login with OIDC
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      
+      - name: 🏷️ Generate build timestamp
+        id: timestamp
+        run: echo "timestamp=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
+      
+      - name: 🔨 Build and push Frontend image
+        run: |
+          echo "🔨 Building frontend image with tag: ${{ steps.timestamp.outputs.timestamp }}"
+          az acr build \
+            --registry ${{ env.ACR_NAME }} \
+            --image frontend:${{ steps.timestamp.outputs.timestamp }} \
+            --image frontend:latest \
+            --build-arg CACHEBUST=${{ github.sha }} \
+            --file ./frontend/Dockerfile \
+            ./frontend
+      
+      - name: 🔨 Build and push Backend image
+        run: |
+          echo "🔨 Building backend image with tag: ${{ steps.timestamp.outputs.timestamp }}"
+          az acr build \
+            --registry ${{ env.ACR_NAME }} \
+            --image backend:${{ steps.timestamp.outputs.timestamp }} \
+            --image backend:latest \
+            --build-arg CACHEBUST=${{ github.sha }} \
+            --file ./backend/Dockerfile \
+            ./backend
+      
+      - name: 🚀 Deploy Backend Container App
+        run: |
+          echo "🚀 Deploying backend version: ${{ steps.timestamp.outputs.timestamp }}"
+          az containerapp update \
+            --name "${{ env.APP_NAME }}-backend" \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --image "${{ env.ACR_NAME }}.azurecr.io/backend:${{ steps.timestamp.outputs.timestamp }}"
+      
+      - name: 🚀 Deploy Frontend Container App
+        run: |
+          echo "🚀 Deploying frontend version: ${{ steps.timestamp.outputs.timestamp }}"
+          az containerapp update \
+            --name "${{ env.APP_NAME }}-frontend" \
+            --resource-group ${{ env.RESOURCE_GROUP }} \
+            --image "${{ env.ACR_NAME }}.azurecr.io/frontend:${{ steps.timestamp.outputs.timestamp }}"
+      
+      - name: ✅ Deployment Summary
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🎉 DEPLOYMENT COMPLETE!"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📦 Version: ${{ steps.timestamp.outputs.timestamp }}"
+          echo "🌐 Frontend: https://${{ env.APP_NAME }}-frontend.${{ env.FRONTEND_DOMAIN }}"
+          echo "🔧 Backend: https://${{ env.APP_NAME }}-backend.${{ env.FRONTEND_DOMAIN }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

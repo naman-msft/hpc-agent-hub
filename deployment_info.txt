@@ -1,0 +1,9 @@
+HPC Agent Hub Deployment Info
+Generated: Fri Oct 31 15:00:19 PDT 2025
+
+Frontend URL: https://hpc-agent-hub-frontend.kindbeach-e15507d6.eastus2.azurecontainerapps.io
+Backend URL: https://hpc-agent-hub-backend.kindbeach-e15507d6.eastus2.azurecontainerapps.io
+ACR Name: acrhpcagenthub
+ACR Login Server: acrhpcagenthub.azurecr.io
+Resource Group: exec-docs-ai
+Container App Environment: env-hpc-pulse
