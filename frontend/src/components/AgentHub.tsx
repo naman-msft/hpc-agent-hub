@@ -18,7 +18,7 @@ const AgentHub: React.FC = () => {
     {
       id: 'hpc-pulse',
       name: 'HPC Pulse',
-      description: 'Natural language conversational analytics for Azure HPC fleet health, NHIS metrics, capacity insights, and Kusto data across GB200/H100/MI300X clusters worldwide.',
+      description: 'AI chatbot converting natural language questions into Kusto queries, evolving dashboards with conversational, cross-team insights grounded in real-time HPC data.', 
       icon: <TrendingUp className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-pulse',
       akaLink: 'aka.ms/hpc-pulse',
@@ -29,7 +29,7 @@ const AgentHub: React.FC = () => {
     {
       id: 'hpc-ai-insights',
       name: 'HPC AI Insights',
-      description: 'AI-powered incident intelligence dashboard analyzing ICM data, cycle times, cross-datacenter patterns, and buildout efficiency for GB200 supercomputing deployments.',
+      description: 'AI-powered ICM + Cycle Time intelligence dashboard analyzing data and providing cluster level insights for the buildout team.',
       icon: <BarChart3 className="w-10 h-10" />,
       link: 'https://aka.ms/hpc-ai-insights',
       akaLink: 'aka.ms/hpc-ai-insights',
